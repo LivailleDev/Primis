@@ -1,7 +1,5 @@
 package com.hulxon.primiscomanda;
 
-import java.util.Optional;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -16,7 +14,7 @@ public class Init {
 	ClientesRepository clientesRepository;
 	@PostConstruct
 	public void start() {
-		Optional<ClientesEntity> cliente=clientesRepository.findById(1);
+		ClientesEntity cliente=clientesRepository.findById(1).get();
 		System.out.println("Olá mundo!");
 		System.out.println(cliente.getNome());
 	}
