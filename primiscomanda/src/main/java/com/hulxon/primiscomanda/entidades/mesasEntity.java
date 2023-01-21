@@ -1,20 +1,20 @@
 package com.hulxon.primiscomanda.entidades;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
-@Table( name = "mesas")
+@Table( name = "mesas", schema = "PrimisWork")
 public class mesasEntity {
 	@Id
-	private Integer numMesa;
+	private Long  numMesa;
 
-	public Integer getNumMesa() {
+	public Long getNumMesa() {
 		return numMesa;
 	}
 
-	public void setNumMesa(Integer numMesa) {
+	public void setNumMesa(Long numMesa) {
 		this.numMesa = numMesa;
 	}
 }

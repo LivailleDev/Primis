@@ -2,14 +2,12 @@ package com.hulxon.primiscomanda.entidades;
 
 import java.util.Date;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "funcionarios", schema = "PrimisWork")
+@Table(name = "funcionarios")
 public class FuncionariosEntity {
 	private String nome;
 	private Double salario;
@@ -19,8 +17,8 @@ public class FuncionariosEntity {
 	private Date demissao;
 	private String cpf;
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+//	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Integer id;
 	public String getNome() {
 		return nome;
 	}
@@ -63,11 +61,10 @@ public class FuncionariosEntity {
 	public void setCpf(String cpf) {
 		this.cpf = cpf;
 	}
-	public Long getId() {
+	public Integer getId() {
 		return id;
 	}
-	public void setId(Long id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
-
 }

@@ -1,13 +1,11 @@
 package com.hulxon.primiscomanda.entidades;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "clientes", schema = "PrimisWork")
+@Table(name = "clientes")
 public class ClientesEntity {
 
 	private String nome;
@@ -17,8 +15,8 @@ public class ClientesEntity {
 	private Double salario;
 	private String email;
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+//	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Integer id;
 	
 	public String getNome() {
 		return nome;
@@ -56,13 +54,12 @@ public class ClientesEntity {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public Long getId() {
+	public Integer getId() {
 		return id;
 	}
-	public void setId(Long id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
-
 
 }
 
