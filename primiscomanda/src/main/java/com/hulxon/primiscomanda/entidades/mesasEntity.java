@@ -6,7 +6,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table( name = "mesas", schema = "PrimisWork")
-public class mesasEntity {
+public class MesasEntity {
 	@Id
 	private Long  numMesa;
 
