@@ -29,7 +29,7 @@ public class Init {
 	@Autowired
 	FuncionariosRepository funcionariosRepository;
 
-	@PostConstruct
+//	@PostConstruct
 	public void start() throws ParseException {
 		ClientesEntity cliente = null;
 		cliente = clientesRepository.findById((long) 1).get();
