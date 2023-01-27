@@ -2,6 +2,7 @@ package com.hulxon.primiscomanda;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 
 import javax.annotation.PostConstruct;
 
@@ -12,10 +13,16 @@ import com.hulxon.primiscomanda.dao.ClientesRepository;
 import com.hulxon.primiscomanda.dao.FuncionariosRepository;
 import com.hulxon.primiscomanda.dao.MesasRepository;
 import com.hulxon.primiscomanda.dao.ProdutosRepository;
+import com.hulxon.primiscomanda.dao.escola.AlunosRepository;
+import com.hulxon.primiscomanda.dao.escola.MateriasRepository;
+import com.hulxon.primiscomanda.dao.escola.ProfessoresRepository;
+import com.hulxon.primiscomanda.dao.escola.TurmasRepository;
 import com.hulxon.primiscomanda.entidades.ClientesEntity;
-import com.hulxon.primiscomanda.entidades.FuncionariosEntity;
 import com.hulxon.primiscomanda.entidades.MesasEntity;
-import com.hulxon.primiscomanda.entidades.ProdutosEntity;
+import com.hulxon.primiscomanda.entidades.escola.AlunosTable;
+import com.hulxon.primiscomanda.entidades.escola.MateriasTable;
+import com.hulxon.primiscomanda.entidades.escola.ProfessoresTable;
+import com.hulxon.primiscomanda.entidades.escola.TurmasTable;
 
 @Component
 public class Init {
@@ -28,7 +35,74 @@ public class Init {
 	MesasRepository mesasRepository;
 	@Autowired
 	FuncionariosRepository funcionariosRepository;
+	
+	@Autowired
+	AlunosRepository alunosRepository;
+	@Autowired
+	TurmasRepository turmasRepository;
+	@Autowired
+	ProfessoresRepository professoresRepository;
+	@Autowired
+	MateriasRepository materiasRepository;
+	
+	@PostConstruct
+	public void escola() throws ParseException {
+	
+		
+		
+		SimpleDateFormat dataFormatada = new SimpleDateFormat("dd/MM/yyyy");
+		AlunosTable aluno=new AlunosTable();
+		TurmasTable turma = new TurmasTable();
+/*
+		turma.setSala(1);
+		turma.setTurno("Manhã");
+		
+		turmasRepository.save(turma);
+		
+		
+		aluno.setNome("Petrucio");
+		aluno.setDataNascimento(dataFormatada.parse("14/01/1999"));
+		aluno.setTurma(turma);
+		
+		alunosRepository.save(aluno);
+ */
+		
+		ProfessoresTable professor = new ProfessoresTable();
+		professor.setNome("Petrolino");
+		professor.setCpf("654.258.123-21");
+		professor.setAdmissao(dataFormatada.parse("01/02/2018"));
+		
+		professor.setMaterias(new ArrayList<>());
 
+		MateriasTable materia = materiasRepository.findById((long)1).get();		
+		professor.getMaterias().add(materia);
+
+		materia = materiasRepository.findById((long)3).get();		
+		professor.getMaterias().add(materia);		
+		
+		professoresRepository.save(professor);
+		
+//		MateriasTable materia = new MateriasTable();
+//		materia.setNome("Portugues");
+//		materia.setCargaHoraria(120);
+//		materiasRepository.save(materia);
+//		
+//		materia = new MateriasTable();
+//		materia.setNome("Matematica");
+//		materia.setCargaHoraria(100);
+//		materiasRepository.save(materia);
+//		
+//		materia = new MateriasTable();
+//		materia.setNome("Historia");
+//		materia.setCargaHoraria(30);
+//		materiasRepository.save(materia);
+//		
+		
+		
+		
+	}
+	
+	
 //	@PostConstruct
 	public void start() throws ParseException {
 		ClientesEntity cliente = null;
@@ -142,6 +216,5 @@ public class Init {
 		 * FuncionariosEntity funcionario = funcionariosRepository.findById(new
 		 * Long(2)).get(); funcionariosRepository.delete(funcionario);
 		 */
-
 	}
 }

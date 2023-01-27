@@ -26,6 +26,36 @@ public class BoletinsTable {
 	@OneToMany
 	@JoinColumn(name="idBoletim")
 	private List<NotasTable> notas;
+	public Long getId() {
+		return id;
+	}
+	public void setId(Long id) {
+		this.id = id;
+	}
+	public AlunosTable getAluno() {
+		return aluno;
+	}
+	public void setAluno(AlunosTable aluno) {
+		this.aluno = aluno;
+	}
+	public Long getIdTurma() {
+		return idTurma;
+	}
+	public void setIdTurma(Long idTurma) {
+		this.idTurma = idTurma;
+	}
+	public Date getDataDeConclusao() {
+		return dataDeConclusao;
+	}
+	public void setDataDeConclusao(Date dataDeConclusao) {
+		this.dataDeConclusao = dataDeConclusao;
+	}
+	public List<NotasTable> getNotas() {
+		return notas;
+	}
+	public void setNotas(List<NotasTable> notas) {
+		this.notas = notas;
+	}
 	
 	
 

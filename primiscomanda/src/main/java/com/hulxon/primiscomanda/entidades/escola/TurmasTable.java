@@ -23,4 +23,29 @@ public class TurmasTable {
 	@JoinColumn(name = "idTurma")
 	private List<AlunosTable> alunos;
 	
+	public Long getId() {
+		return id;
+	}
+	public void setId(Long id) {
+		this.id = id;
+	}
+	public String getTurno() {
+		return turno;
+	}
+	public void setTurno(String turno) {
+		this.turno = turno;
+	}
+	public Integer getSala() {
+		return sala;
+	}
+	public void setSala(Integer sala) {
+		this.sala = sala;
+	}
+	public List<AlunosTable> getAlunos() {
+		return alunos;
+	}
+	public void setAlunos(List<AlunosTable> alunos) {
+		this.alunos = alunos;
+	}
+	
 }
