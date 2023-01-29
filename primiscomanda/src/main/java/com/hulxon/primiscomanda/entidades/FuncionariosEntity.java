@@ -1,16 +1,22 @@
 package com.hulxon.primiscomanda.entidades;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "funcionarios", schema = "PrimisWork")
 public class FuncionariosEntity {
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long idfuncionario;
 	private String nome;
 	private Double salario;
 	private Integer comissao;
@@ -18,9 +24,10 @@ public class FuncionariosEntity {
 	private Date admissao;
 	private Date demissao;
 	private String cpf;
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+	@OneToMany
+	@JoinColumn (name= "idfuncionario")
+	private List<ComandasEntity> comandas;
+	
 	public String getNome() {
 		return nome;
 	}
@@ -63,11 +70,18 @@ public class FuncionariosEntity {
 	public void setCpf(String cpf) {
 		this.cpf = cpf;
 	}
-	public Long getId() {
-		return id;
+	public Long getIdfuncionario() {
+		return idfuncionario;
 	}
-	public void setId(Long id) {
-		this.id = id;
+	public void setIdfuncionario(Long idfuncionario) {
+		this.idfuncionario = idfuncionario;
 	}
-
+	public List<ComandasEntity> getComandas() {
+		return comandas;
+	}
+	public void setComandas(List<ComandasEntity> comandas) {
+		this.comandas = comandas;
+	}
+	
+	
 }

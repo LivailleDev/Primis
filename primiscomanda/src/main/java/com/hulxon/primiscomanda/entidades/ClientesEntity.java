@@ -1,9 +1,13 @@
 package com.hulxon.primiscomanda.entidades;
 
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -19,6 +23,10 @@ public class ClientesEntity {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+	
+	@OneToMany
+	@JoinColumn(name= "idCliente")
+	private List<ComandasEntity> comandas;
 	
 	public String getNome() {
 		return nome;
@@ -62,8 +70,15 @@ public class ClientesEntity {
 	public void setId(Long id) {
 		this.id = id;
 	}
+	public List<ComandasEntity> getComandas() {
+		return comandas;
+	}
+	public void setComandas(List<ComandasEntity> comandas) {
+		this.comandas = comandas;
+	}
 
 
+	
 }
 
 

@@ -12,11 +12,12 @@ public class ProdutosEntity {
 	private String descricao;
 	private String unidade;
 	private Integer quantidade;
-	private Double precodecompra;
-	private Double precodevenda;
+	private Double precoDeCompra;
+	private Double precoDeVenda;
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+	private Long idProdutos;
+		
 	public String getDescricao() {
 		return descricao;
 	}
@@ -35,23 +36,23 @@ public class ProdutosEntity {
 	public void setQuantidade(Integer quantidade) {
 		this.quantidade = quantidade;
 	}
-	public Double getPrecodecompra() {
-		return precodecompra;
+	public Double getPrecoDeCompra() {
+		return precoDeCompra;
 	}
-	public void setPrecodecompra(Double precodecompra) {
-		this.precodecompra = precodecompra;
+	public void setPrecoDeCompra(Double precoDeCompra) {
+		this.precoDeCompra = precoDeCompra;
 	}
-	public Double getPrecodevenda() {
-		return precodevenda;
+	public Double getPrecoDeVenda() {
+		return precoDeVenda;
 	}
-	public void setPrecodevenda(Double precodevenda) {
-		this.precodevenda = precodevenda;
+	public void setPrecoDeVenda(Double precoDeVenda) {
+		this.precoDeVenda = precoDeVenda;
 	}
-	public Long getId() {
-		return id;
+	public Long getIdProdutos() {
+		return idProdutos;
 	}
-	public void setId(Long id) {
-		this.id = id;
+	public void setIdProdutos(Long idProdutos) {
+		this.idProdutos = idProdutos;
 	}
 
 }
