@@ -25,6 +25,9 @@ public class Init {
 	@Autowired
 	FuncionariosRepository funcionariosRepository;
 	
+	public void teste(){
+		System.out.println("Teste de branch");
+	}
 	
 //	@PostConstruct
 	public void start() throws ParseException {
