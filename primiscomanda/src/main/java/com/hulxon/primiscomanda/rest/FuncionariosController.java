@@ -14,7 +14,7 @@ import com.hulxon.primiscomanda.dao.FuncionariosRepository;
 import com.hulxon.primiscomanda.entidades.FuncionariosEntity;
 	
 	@RestController
-	@RequestMapping("/incluir")
+	@RequestMapping("/funcionario")
 	public class FuncionariosController {
 		
 		@Autowired
