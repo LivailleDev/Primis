@@ -14,7 +14,7 @@ import com.hulxon.primiscomanda.dao.ClientesRepository;
 import com.hulxon.primiscomanda.entidades.ClientesEntity;
 
 @RestController
-@RequestMapping("/cadastro")
+@RequestMapping("/cliente")
 public class ClienteController {
 	
 	@Autowired
