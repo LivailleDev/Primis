@@ -14,7 +14,7 @@ import com.hulxon.primiscomanda.dao.ProdutosRepository;
 import com.hulxon.primiscomanda.entidades.ProdutosEntity;
 
 	@RestController
-	@RequestMapping("/adcionar")
+	@RequestMapping("/produto")
 	public class ProdutosController {
 		
 		@Autowired
