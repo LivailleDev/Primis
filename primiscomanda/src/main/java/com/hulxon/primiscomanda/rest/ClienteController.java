@@ -40,7 +40,7 @@ public class ClienteController {
 
 	@GetMapping(path="/pesquisarpornome={nome}")
 	public List <ClientesEntity> pesquisarPorNome (@PathVariable(value= "nome")String nome){
-		List<ClientesEntity> clientes= clientesRepository.pesquisarPorNome(nome);
+		List<ClientesEntity> clientes= clientesRepository.findByNomeContaining(nome);
 		return clientes;
 		
 	}

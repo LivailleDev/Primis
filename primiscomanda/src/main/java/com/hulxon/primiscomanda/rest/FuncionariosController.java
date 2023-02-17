@@ -11,20 +11,17 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.hulxon.primiscomanda.dao.FuncionariosRepository;
+import com.hulxon.primiscomanda.entidades.ClientesEntity;
 import com.hulxon.primiscomanda.entidades.FuncionariosEntity;
 	
 	@RestController
-<<<<<<< Updated upstream
-	@RequestMapping("/funcionario")
-=======
 	@RequestMapping("/funcionarios")
->>>>>>> Stashed changes
 	public class FuncionariosController {
 		
 		@Autowired
 		FuncionariosRepository funcionariosRepository;
 		
-		
+
 		@GetMapping(path="/listartodos")
 		public List<FuncionariosEntity> listarFuncionarios (){
 			List<FuncionariosEntity> funcionarios= funcionariosRepository.findAll();
@@ -39,5 +36,10 @@ import com.hulxon.primiscomanda.entidades.FuncionariosEntity;
 			FuncionariosEntity funcionario = funcionariosRepository.findById(id).get();
 			funcionariosRepository.delete(funcionario);
 		}
-
+		@GetMapping(path="/pesquisarpornome={nome}")
+		public List <FuncionariosEntity> pesquisarPorNome (@PathVariable(value= "nome")String nome){
+			List<FuncionariosEntity> funcionarios= funcionariosRepository.findByNomeContaining(nome);
+			return funcionarios;
+			
+		}
 	}

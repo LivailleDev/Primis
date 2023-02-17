@@ -11,14 +11,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.hulxon.primiscomanda.dao.ProdutosRepository;
+import com.hulxon.primiscomanda.entidades.FuncionariosEntity;
 import com.hulxon.primiscomanda.entidades.ProdutosEntity;
 
 	@RestController
-<<<<<<< Updated upstream
-	@RequestMapping("/produto")
-=======
 	@RequestMapping("/produtos")
->>>>>>> Stashed changes
 	public class ProdutosController {
 		
 		@Autowired
@@ -39,5 +36,10 @@ import com.hulxon.primiscomanda.entidades.ProdutosEntity;
 			ProdutosEntity produtos = produtosRepository.findById(id).get();
 			produtosRepository.delete(produtos);
 		}
-		
+		@GetMapping(path="/pesquisarpordescricao={descricao}")
+		public List <ProdutosEntity> pesquisarPorDescricao (@PathVariable(value= "descricao")String descricao){
+			List<ProdutosEntity> produtos= produtosRepository.findByDescricaoContaining(descricao);
+			return produtos;
+			
+		}
 }
