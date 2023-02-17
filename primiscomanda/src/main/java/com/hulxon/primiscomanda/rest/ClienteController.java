@@ -26,14 +26,22 @@ public class ClienteController {
 		List<ClientesEntity> clientes= clientesRepository.findAll();
 		return clientes;		
 	}
+	
 	@PostMapping(path="/gravar")
 	public void gravar (@RequestBody ClientesEntity cliente) {
 		clientesRepository.save(cliente);
 	}
+	
 	@GetMapping(path = "/apagar/{id}")
 	public void apagar(@PathVariable(value ="id") Long id) {
 		ClientesEntity cliente = clientesRepository.findById(id).get();
 		clientesRepository.delete(cliente);
 	}
 
+	@GetMapping(path="/pesquisarpornome={nome}")
+	public List <ClientesEntity> pesquisarPorNome (@PathVariable(value= "nome")String nome){
+		List<ClientesEntity> clientes= clientesRepository.pesquisarPorNome(nome);
+		return clientes;
+		
+	}
 }

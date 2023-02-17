@@ -14,7 +14,11 @@ import com.hulxon.primiscomanda.dao.FuncionariosRepository;
 import com.hulxon.primiscomanda.entidades.FuncionariosEntity;
 	
 	@RestController
+<<<<<<< Updated upstream
 	@RequestMapping("/funcionario")
+=======
+	@RequestMapping("/funcionarios")
+>>>>>>> Stashed changes
 	public class FuncionariosController {
 		
 		@Autowired

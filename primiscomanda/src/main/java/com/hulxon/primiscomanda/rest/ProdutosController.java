@@ -14,7 +14,11 @@ import com.hulxon.primiscomanda.dao.ProdutosRepository;
 import com.hulxon.primiscomanda.entidades.ProdutosEntity;
 
 	@RestController
+<<<<<<< Updated upstream
 	@RequestMapping("/produto")
+=======
+	@RequestMapping("/produtos")
+>>>>>>> Stashed changes
 	public class ProdutosController {
 		
 		@Autowired
