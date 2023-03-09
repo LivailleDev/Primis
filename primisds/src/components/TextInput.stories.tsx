@@ -1,14 +1,16 @@
 import { Meta, StoryObj } from '@storybook/react'
-import { TextInput, TextInputProps } from './TextInput'
+import { TextInput, TextInputInputProps, TextInputRootProps } from './TextInput'
 
 export default {
     title: 'Components/TextInput',
-    component: TextInput,
+    component: TextInput.Root,
     args: {
-        placeholder: 'TEXTO AQUI 123'
+        children: [
+            <TextInput.Input placeholder="TESTE HERE" />
+        ],
     },
     argTypes: {}
-} as Meta<TextInputProps>
+} as Meta<TextInputRootProps>
 
-export const Default: StoryObj<TextInputProps> = {}
+export const Default: StoryObj<TextInputRootProps> = {}
 
