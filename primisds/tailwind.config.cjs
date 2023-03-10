@@ -27,7 +27,7 @@ module.exports = {
       gray: {
       300: '#FFFFFF',
       400: '#FFFFFF5e',
-      500: '#ABAAAA54'},
+      500: '#807A74'}, //cor do botão produtos
     },
     
     extend: {

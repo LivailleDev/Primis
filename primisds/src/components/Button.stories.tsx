@@ -5,7 +5,7 @@ export default {
     title: 'Components/Button',
     component: Button,
     args: {
-        children: 'Buscar Produtos',
+        children: 'Teste do Button',
         size: 'lg',
     },
     argTypes: {}
