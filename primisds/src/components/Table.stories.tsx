@@ -1,0 +1,1 @@
+import { TableProps }  from './Table';

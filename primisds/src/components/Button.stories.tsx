@@ -13,3 +13,4 @@ export default {
 } as Meta<ButtonProps>
 
 export const Default: StoryObj<ButtonProps> = {}
+
