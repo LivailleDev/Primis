@@ -1,74 +1,63 @@
-import React from 'react';
-import { useTable } from 'react-table';
-import ReactTable from 'react-table';
+import React, { useState } from 'react';
 
-export interface TableProps {
-    columns: [{
-        Header: 'Id',
-        accessor: 'id'
-    }, {
-        Header: 'Descrição',
-        accessor: 'descricao'
-    }, {
-        Header: 'Preço de Compra',
-        accessor: 'precoDeCompra'
-    }, {
-        Header: 'Preço de Venda',
-        accessor: 'precoDeVenda'
-    }, {
-        Header: 'Quantidade',
-        accessor: 'quantidade'
-    }, {
-        Header: '',
-        accessor: 'editar'
-    }, {
-        Header: '',
-        accessor: 'excluir'
-    },];
-
-    data: [
-        { id: 1, descricao: 'Agua Mineral', precoDeCompra: 1, precoDeVenda: 2, quantidade: 213, editar: '', excluir: '' },
-        { id: 2, descricao: 'Heineker', precoDeCompra: 2, precoDeVenda: 3, quantidade: 32, editar: '', excluir: '' },
-        { id: 3, descricao: 'Suco de Laranja', precoDeCompra: 1, precoDeVenda: 3, quantidade: 56, editar: '', excluir: '' },
-        { id: 4, descricao: 'Vodca Absolut', precoDeCompra: 2, precoDeVenda: 5, quantidade: 75, editar: '', excluir: '' },
-    ];
-}
+function ProductTable() {
+    const [products, setProducts] = useState([
+        { id: 1, descricao: 'vodka', unidade: 'un' , precodecompra: '5', precodevenda: '60', quantidade:'700', editar: "", excluir: "" },
+        { id: 2, descricao: 'agua', unidade: 'un' , precodecompra: '1', precodevenda: '5', quantidade:'500', editar: "", excluir: "" },
+        { id: 3, descricao: 'cerveja', unidade: 'un' , precodecompra: '2', precodevenda: '7', quantidade:'200', editar: "", excluir: "" },
+        
+    ]);
+    const [query, setQuery] = useState('');
 
 
-const Table: React.FC<TableProps> = ({ columns, data }) => {
-    const tableInstance = useTable({ columns, data });
+    /*function handleQueryChange(event) {
+        setQuery(event.target.value);
+    }*/
 
-    const {
-        getTableProps,
-        getTableBodyProps,
-        headerGroups,
-        rows,
-        prepareRow,
-    } = tableInstance;
+    function addProduct() {
+        const newProduct = { id: 4, descricao: 'coca-cola', unidade: 'un' , precodecompra: '1', precodevenda: '7', quantidade:'200', editar: "", excluir: "" }
+        setProducts([...products, newProduct]);
+      }
+
+     
+/*    const filteredProducts = products.filter((product) =>
+        product.name.toLowerCase().includes(query.toLowerCase())
+    ); */
+
 
     return (
-        <table {...getTableProps()}>
-            <thead>
-                {headerGroups.map(headerGroup => (
-                    <tr {...headerGroup.getHeaderGroupProps()}>
-                        {headerGroup.headers.map(column => (
-                            <th {...column.getHeaderProps()}>{column.render('Header')}</th>
-                        ))}
+        <div>
+            <input type="text" value={query} onChange={handleQueryChange} />
+            <table>
+                <thead>
+                    <tr>
+                        <th>DESCRIÇÃO</th>
+                        <th>UNIDADE</th>
+                        <th>PREÇO DE COMPRA</th>
+                        <th>PREÇO DE VENDA</th>
+                        <th>QUANTIDADE</th>
+                        <th>EDITAR</th>
+                        <th>EXCLUIR</th>
                     </tr>
-                ))}
-            </thead>
-            <tbody {...getTableBodyProps()}>
-                {rows.map(row => {
-                    prepareRow(row);
-                    return (
-                        <tr {...row.getRowProps()}>
-                            {row.cells.map(cell => (
-                                <td {...cell.getCellProps()}>{cell.render('Cell')}</td>
-                            ))}
+                </thead>
+                <tbody>
+                    {products.map(product => (
+                        <tr key={product.id}>
+                            <td>{product.descricao}</td>
+                            <td>{product.unidade}</td>
+                            <td>{product.precodecompra}</td>
+                            <td>{product.precodevenda}</td>
+                            <td>{product.quantidade}</td>
+                            <td>{product.editar}</td>
+                            <td>{product.excluir}</td>
+
                         </tr>
-                    );
-                })}
-            </tbody>
-        </table>
+                    ))}
+                </tbody>
+            </table>
+            <button onClick={() => addProduct()}>Adcionar Produto</button>
+        </div>
     );
-};
+}
+
+export default ProductTable;
