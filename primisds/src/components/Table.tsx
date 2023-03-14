@@ -1,7 +1,14 @@
-import React, { useState } from 'react';
+import React, { ReactNode, useState } from 'react';
 
-function ProductTable() {
+export interface TableProps {
+    children: ReactNode;
+    asChild?: boolean;
+}
+
+export function Table() {
     const [products, setProducts] = useState([
+
+        //futuro children
         { id: 1, descricao: 'vodka', unidade: 'un', precodecompra: '5', precodevenda: '60', quantidade: '700', editar: "", excluir: "" },
         { id: 2, descricao: 'agua', unidade: 'un', precodecompra: '1', precodevenda: '5', quantidade: '500', editar: "", excluir: "" },
         { id: 3, descricao: 'cerveja', unidade: 'un', precodecompra: '2', precodevenda: '7', quantidade: '200', editar: "", excluir: "" },
@@ -64,4 +71,4 @@ function ProductTable() {
         );
     }
 
-    export default ProductTable;
+    export default Table;
