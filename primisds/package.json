@@ -20,8 +20,6 @@
     "prop-types": "*",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-native-table-component": "^1.2.2",
-    "react-table": "^7.8.0",
     "realm": "*",
     "storybook": "^6.5.16"
   },
