@@ -1,9 +1,30 @@
 import React, { ReactNode, useState } from 'react';
+import { Slot } from '@radix-ui/react-slot';
+
+export interface TableInputRootProps {
+    children: ReactNode;
+  }
 
 export interface TableProps {
     children: ReactNode;
     asChild?: boolean;
 }
+
+function TableInputRoot(props: TableInputRootProps) {
+    return (
+      <div className="flex items-center gap-3 h-12 py-4 px-3 rounded bg-gray-500 w-full focus-within:ring-1 ring-gray-400">
+        {props.children}
+      </div>
+    )
+  }
+
+export function TableInputIcon(props: TableInputRootProps) {
+    return (  
+      <Slot className="w-6 h-6 text-yellow-100">
+        {props.children}
+      </Slot>
+    )
+  }
 
 export function Table() {
     const [products, setProducts] = useState([
@@ -24,6 +45,14 @@ export function Table() {
         onSearch: (value: string) => void;
     }
 
+    function TableInputIcon(props: TableInputRootProps) {
+        return (  
+          <Slot className="w-6 h-6 text-yellow-100">
+            {props.children}
+          </Slot>
+        )
+      }
+
 
 
         function addProduct() {
@@ -39,10 +68,10 @@ export function Table() {
 
         return (
             <div>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>DESCRIÇÃO</th>
+                <table className="table-auto bg-gray-500 text-gray-300 text-xs placeholder:text-gray-400 w-full focus:outline-none focus: ring-1 ring-brown-200 border-y-black border-x-brown-200">
+                    <thead className= " border focus: ring-1">
+                        <tr className="text-center">
+                            <th >DESCRIÇÃO</th>
                             <th>UNIDADE</th>
                             <th>PREÇO DE COMPRA</th>
                             <th>PREÇO DE VENDA</th>
@@ -51,9 +80,9 @@ export function Table() {
                             <th>EXCLUIR</th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody >
                         {products.map(product => (
-                            <tr key={product.id}>
+                            <tr key={product.id} className="text-center">
                                 <td>{product.descricao}</td>
                                 <td>{product.unidade}</td>
                                 <td>{product.precodecompra}</td>
@@ -66,9 +95,17 @@ export function Table() {
                         ))}
                     </tbody>
                 </table>
-                <button onClick={() => addProduct()}>Adcionar Produto</button>
+            {/* <button onClick={() => addProduct()}>Adcionar Produto</button> */}
             </div>
         );
     }
 
+    export const TableInput = {
+        Root: TableInputRoot,
+        //Input: TableInputIconProps,
+        Icon: TableInputIcon,
+      }
+          
+
     export default Table;
+    

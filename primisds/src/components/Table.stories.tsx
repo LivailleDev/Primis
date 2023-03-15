@@ -1,12 +1,17 @@
 import { Meta, StoryObj } from '@storybook/react'
-import { Table, TableProps } from './Table';
+import { TableInput } from './Table';
+import { Table, TableInputRootProps } from './Table'
 
 export default {
     title: 'Components/Table',
     component: Table,
-    args: {},
+    args: {
+        children: [],
+    },
     argTypes: {}
 
-} as Meta<TableProps>
+} as Meta<TableInputRootProps>
 
-export const Default: StoryObj<TableProps> = {}
+export const Default: StoryObj<TableInputRootProps> = {}
+
+export const WhitoutIcon: StoryObj<TableInputRootProps> = {}

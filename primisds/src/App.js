@@ -1,5 +1,5 @@
 import React from 'react';
-import ProductTable from './ProductTable';
+import Table from './Table';
 
 function App() {
   return (
