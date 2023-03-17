@@ -1,17 +1,25 @@
-import { Meta, StoryObj } from '@storybook/react'
-import { TableInput } from './Table';
-import { Table, TableInputRootProps } from './Table'
+import { Meta, StoryObj } from '@storybook/react';
+import { Table, TableIconProps,  } from './Table';
+import { Pencil } from 'phosphor-react';
+import { Trash } from 'phosphor-react';
 
 export default {
     title: 'Components/Table',
-    component: Table,
+    component: Table.Table,
     args: {
-        children: [],
+        children: [
+            <>
+                <Table.Icon>
+                    <Pencil />
+                </Table.Icon>
+                <Table.Icon>
+                    <Trash />
+                </Table.Icon>
+            </>
+        ],
     },
     argTypes: {}
 
-} as Meta<TableInputRootProps>
+} as Meta<TableIconProps>
 
-export const Default: StoryObj<TableInputRootProps> = {}
-
-export const WhitoutIcon: StoryObj<TableInputRootProps> = {}
+export const Default: StoryObj<TableIconProps> = {}

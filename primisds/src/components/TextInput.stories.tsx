@@ -26,9 +26,5 @@ export default {
 
 export const Default: StoryObj<TextInputRootProps> = { }
 
-export const WhitoutIcon: StoryObj<TextInputRootProps> = { 
-    args: {
-        children:<TextInput.Input placeholder="Buscar Produtos"/>
-    }
-}
+export const WhitoutIcon: StoryObj<TextInputRootProps> = {}
 
