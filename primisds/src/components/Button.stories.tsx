@@ -1,16 +1,19 @@
 import { Meta, StoryObj } from '@storybook/react'
-import { Button, ButtonProps } from './Button'
+import { Button, ButtonRootProps } from './Button'
+import { FilePlus } from 'phosphor-react';
 
 export default {
     title: 'Components/Button',
-    component: Button,
+    component: Button.Root,
     args: {
-        children: 'Teste do Button',
-        size: 'lg',
+        children: [
+        <>
+                  <FilePlus className='text-yellow-100'/> Novo 
+         </>   
+        ]
     },
     argTypes: {}
 
-} as Meta<ButtonProps>
+} as Meta<ButtonRootProps>
 
-export const Default: StoryObj<ButtonProps> = {}
-
+export const Default: StoryObj<ButtonRootProps> = {}
